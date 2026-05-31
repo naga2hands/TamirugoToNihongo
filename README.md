@@ -1,1 +1,17 @@
-# tamil-japanese-sound-map
+# Tamil-Japanese Sound Mapper Prototype
+
+A lightweight static web app for teaching Tamil letter forms and how they simplify toward Japanese sound categories.
+
+## Files
+- `index.html` — layout and content structure
+- `styles.css` — responsive visual design
+- `script.js` — modular slider logic, Tamil data, and dynamic stage updates
+
+## How to use
+1. Open `index.html` in a browser, or serve the folder from a local static server.
+2. Move the slider to see the Tamil grid simplify in stages.
+3. When the slider reaches the final stage, Japanese equivalent notes appear.
+
+## Notes
+- No frameworks are used; only HTML, CSS, and vanilla JavaScript.
+- The app starts with the full Tamil set and demonstrates progressive reduction to a core instructional set.

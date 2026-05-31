@@ -1,0 +1,295 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f5f6f8;
+  color: #111827;
+  font-size: 95%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow-y: hidden;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.app-shell {
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 12px 12px 6px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#explanation {
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+.hero {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 8px;
+}
+
+.hero h1 {
+  margin: 0 0 5px;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.hero p {
+  margin: 0;
+  color: #374151;
+  max-width: 760px;
+}
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2.0fr) minmax(250px, 1fr);
+  gap: 4px;
+  align-items: stretch;
+  flex: 1;
+}
+
+.panel {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 15px;
+  padding: 6px;
+  box-shadow: 0 7px 14px rgba(15, 23, 42, 0.05);
+}
+
+.panel-header h2 {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.panel-header p {
+  margin: 5px 0 0;
+  color: #4b5563;
+  line-height: 1.4;
+}
+
+.tamil-grid {
+  /* container for the chart table: allow horizontal scroll on small screens, but no vertical scrolling */
+  display: block;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-top: 0;
+  padding-bottom: 6px;
+}
+
+/* Table layout for Tamil chart */
+.tamil-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0;
+  table-layout: fixed;
+}
+.tamil-table th,
+.tamil-table td {
+  border: 1px solid #e5e7eb;
+  padding: 5px 4px;
+  text-align: center;
+  vertical-align: middle;
+  background: #fff;
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: Latha, "Noto Sans Tamil", "Noto Sans", "Segoe UI Symbol", system-ui, -apple-system, "Segoe UI", sans-serif;
+  width: 1%;
+  font-size: 0.8rem;
+}
+.tamil-table td {
+  min-width: 34px;
+  height: 18px;
+}
+/*.tamil-table .corner-cell {
+  background: transparent;
+  border-color: transparent;
+}*/
+.tamil-table .vowel-header {
+  font-weight: 380;
+  background: #f3f4f6;
+}
+.tamil-table .row-label {
+  font-weight: 380;
+  background: #f9fafb;
+  min-width: 38px;
+  font-size: 0.85rem;
+}
+.cell-main {
+  font-size: 0.85rem;
+  line-height: 1.05;
+  display: block;
+}
+.cell-sub {
+  margin-top: 4px;
+  font-size: 0.7rem;
+  color: #374151;
+}
+.tamil-table td.hidden {
+  opacity: 0.18;
+}
+.tamil-table td.cell-highlight {
+  background: #fff7e6;
+  border-color: #f5c26b;
+}
+.tamil-table td.cell-highlight .cell-main {
+  color: #b45309;
+  font-weight: 650;
+}
+.tamil-table td.cell-dim,
+.tamil-table th.cell-dim,
+.tamil-table td.cell-dim .cell-main,
+.tamil-table th.cell-dim .cell-main,
+.tamil-table td.cell-dim .row-label {
+  opacity: 0.35;
+  color: #6b7280;
+}
+.tamil-table td.removed-header {
+  visibility: hidden;
+}
+.special-cell .cell-main {
+  font-weight: 700;
+}
+
+.tamil-card {
+  min-height: 92px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 16px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  transition: transform 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.tamil-card:hover {
+  transform: translateY(-2px);
+  border-color: #9ca3af;
+}
+
+.tamil-card.hidden {
+  opacity: 0.18;
+}
+
+.card-main {
+  font-size: 1.8rem;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.card-subtitle {
+  margin-top: 8px;
+  font-size: 0.82rem;
+  color: #6b7280;
+  text-align: center;
+  min-height: 1.2em;
+}
+
+.japanese-match {
+  margin-top: 10px;
+  padding: 6px 8px;
+  background: #eef2ff;
+  color: #3730a3;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+.stage-summary,
+.explanation-text {
+  margin-top: 14px;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.control-panel {
+  margin-top: 8px;
+  padding: 10px;
+  display: grid;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+}
+
+.slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+label {
+  font-weight: 600;
+}
+
+#stageSlider {
+  width: 100%;
+}
+
+.slider-info {
+  display: flex;
+  justify-content: space-between;
+  color: #4b5563;
+  font-size: 0.85rem;
+}
+
+.stage-milestones {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  margin-top: 6px;
+  width: 100%;
+}
+
+.stage-milestone {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  color: #374151;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.stage-milestone.active {
+  background: #2563eb;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+@media (max-width: 960px) {
+  .layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .tamil-grid {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  }
+  .panel {
+    padding: 16px;
+  }
+}
