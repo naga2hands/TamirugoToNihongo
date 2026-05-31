@@ -145,10 +145,10 @@ body {
 }
 .tamil-table td.cell-highlight {
   background: #fff7e6;
-  border-color: #9391f7;
+  border-color: #f5c26b;
 }
 .tamil-table td.cell-highlight .cell-main {
-  color: #a794db;
+  color: #94633d;
   font-weight: 650;
 }
 .tamil-table td.cell-dim,
