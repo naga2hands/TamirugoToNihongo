@@ -13,7 +13,8 @@
 html,
 body {
   height: 100%;
-  overflow-y: hidden;
+  overflow-y: auto;
+  overflow-x: auto; /* or visible */
 }
 
 body {
