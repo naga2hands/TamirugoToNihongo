@@ -1,6 +1,8 @@
 # Tamil-Japanese Sound Mapper Prototype
 
-A lightweight static web app for teaching Tamil letter forms and how they simplify toward Japanese sound categories.
+A lightweight static web app for teaching Japanese Sounds through Tamil letter forms and how they simplify toward Japanese sound categories.
+
+URL: https://naga2hands.github.io/tamil-japanese-sound-map/
 
 ## Files
 - `index.html` — layout and content structure
