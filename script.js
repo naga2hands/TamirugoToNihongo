@@ -605,7 +605,7 @@ function renderTamilGrid(stageIndex) {
         displayLabel = 'எ';
         td.classList.add('cell-highlight');  // Highlight changed cell
       }
-
+/*
     // FINAL STAGE: Convert Tamil → Japanese (Stage 17+)
 if (stageIndex >= 16) {
   const kana = convertToKana(consonant.base, vs.label, stageIndex);
@@ -614,7 +614,7 @@ if (stageIndex >= 16) {
     td.classList.add('cell-highlight');
   }
 }
-
+*/
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       // STEP 7: DIM / BLANK RULES FOR LATER STAGES
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
