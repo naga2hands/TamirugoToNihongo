@@ -459,7 +459,7 @@ visibleVowelSigns.forEach((vs) => {
   const match = tamilVowels.find(tv => tv.name === vs.label);
   let vowelGlyph = match ? match.label : vs.label;
   //  Stage 17+ override
-  if (stageIndex >= 16 && match) {
+  if (stageIndex >= 17 && match) {
     vowelGlyph = match.japanese;
   }
   th.textContent = vowelGlyph;
@@ -512,7 +512,7 @@ visibleVowelSigns.forEach((vs) => {
       const td = document.createElement('td');
       td.className = 'syllable-cell cell-highlight';
       td.colSpan = visibleVowelSigns.length;  // Span all vowel columns
-      const label = stageIndex >= 16 ? 'ん' : consonant.display;
+      const label = stageIndex >=17 ? 'ん' : consonant.display;
       td.innerHTML = `<div class="cell-main">${label}</div>`;
       tr.appendChild(td);
       tbody.appendChild(tr);
@@ -612,7 +612,7 @@ visibleVowelSigns.forEach((vs) => {
         td.classList.add('cell-highlight');  // Highlight changed cell
       }
 
-if (stageIndex >= 16 && consonant.base === 'க') {
+if (stageIndex >= 17 && consonant.base === 'க') {
         const replacementMap = {
           a: 'か',
           i: 'き',
@@ -624,7 +624,7 @@ if (stageIndex >= 16 && consonant.base === 'க') {
           displayLabel = replacementMap[vs.label];
         }
       }
-if (stageIndex >= 16 && consonant.base === 'ச') {
+if (stageIndex >= 17 && consonant.base === 'ச') {
         const replacementMap = {
           a: 'さ',
           i: 'し',
@@ -637,7 +637,7 @@ if (stageIndex >= 16 && consonant.base === 'ச') {
         }
       }
 	  
-if (stageIndex >= 16 && consonant.base === 'த') {
+if (stageIndex >= 17 && consonant.base === 'த') {
         const replacementMap = {
           a: 'た',
           i: 'ち',
@@ -650,7 +650,7 @@ if (stageIndex >= 16 && consonant.base === 'த') {
         }
       }
 
-if (stageIndex >= 16 && consonant.base === 'ந') {
+if (stageIndex >= 17 && consonant.base === 'ந') {
         const replacementMap = {
           a: 'な',
           i: 'に',
@@ -663,7 +663,7 @@ if (stageIndex >= 16 && consonant.base === 'ந') {
         }
       }
 
-if (stageIndex >= 16 && consonant.base === 'ப') {
+if (stageIndex >= 17 && consonant.base === 'ப') {
         const replacementMap = {
           a: 'は',
           i: 'ひ',
@@ -676,7 +676,7 @@ if (stageIndex >= 16 && consonant.base === 'ப') {
         }
       }
 
-if (stageIndex >= 16 && consonant.base === 'ம') {
+if (stageIndex >= 17 && consonant.base === 'ம') {
         const replacementMap = {
           a: 'ま',
           i: 'み',
@@ -689,7 +689,7 @@ if (stageIndex >= 16 && consonant.base === 'ம') {
         }
       }
 
-if (stageIndex >= 16 && consonant.base === 'ய') {
+if (stageIndex >= 17 && consonant.base === 'ய') {
         const replacementMap = {
           a: 'や',
           i: '',
@@ -702,7 +702,7 @@ if (stageIndex >= 16 && consonant.base === 'ய') {
         }
       }
 
-if (stageIndex >= 16 && consonant.base === 'ர') {
+if (stageIndex >= 17 && consonant.base === 'ர') {
         const replacementMap = {
           a: 'ら',
           i: 'り',
@@ -715,7 +715,7 @@ if (stageIndex >= 16 && consonant.base === 'ர') {
         }
       }
 
-if (stageIndex >= 16 && consonant.base === 'வ') {
+if (stageIndex >= 17 && consonant.base === 'வ') {
         const replacementMap = {
           a: 'わ',
           i: '',
