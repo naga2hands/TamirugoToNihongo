@@ -283,6 +283,7 @@ function buildForms() {
     });
   });
 
+  /*
  function convertToKana(consonant, vowel, stageIndex) {
 
   // ✅ vowels (top row)
@@ -327,7 +328,7 @@ function buildForms() {
 
   return kanaMap[key] || null;
 }
-
+*/
   // Add all 216 consonant+vowel combinations (18 consonants × 12 vowel signs)
   tamilConsonants.forEach(consonant => {
     vowelSigns.forEach((vowelSign, index) => {
