@@ -620,6 +620,103 @@ if (stageIndex >= 16 && consonant.base === 'க') {
           td.classList.add('cell-highlight');
         }
       }
+if (stageIndex >= 16 && consonant.base === 'ச') {
+        const replacementMap = {
+          a: 'さ',
+          i: 'し',
+          u: 'す',
+          e: 'せ',
+          o: 'そ',
+        };
+        if (replacementMap[vs.label]) {
+          displayLabel = replacementMap[vs.label];
+         　td.classList.add('cell-highlight');
+        }
+      }
+	  
+if (stageIndex >= 16 && consonant.base === 'த') {
+        const replacementMap = {
+          a: 'た',
+          i: 'ち',
+          u: 'つ',
+          e: 'て',
+          o: 'と',
+        };
+        if (replacementMap[vs.label]) {
+          displayLabel = replacementMap[vs.label];
+         　td.classList.add('cell-highlight');
+        }
+      }
+
+if (stageIndex >= 16 && consonant.base === 'ப') {
+        const replacementMap = {
+          a: 'は',
+          i: 'ひ',
+          u: 'ふ',
+          e: 'へ',
+          o: 'ほ',
+        };
+        if (replacementMap[vs.label]) {
+          displayLabel = replacementMap[vs.label];
+         　td.classList.add('cell-highlight');
+        }
+      }
+
+if (stageIndex >= 16 && consonant.base === 'ம') {
+        const replacementMap = {
+          a: 'ま',
+          i: 'み',
+          u: 'む',
+          e: 'め',
+          o: 'も',
+        };
+        if (replacementMap[vs.label]) {
+          displayLabel = replacementMap[vs.label];
+         　td.classList.add('cell-highlight');
+        }
+      }
+
+if (stageIndex >= 16 && consonant.base === 'ய') {
+        const replacementMap = {
+          a: 'や',
+          i: '',
+          u: 'ゆ',
+          e: '',
+          o: 'よ',
+        };
+        if (replacementMap[vs.label]) {
+          displayLabel = replacementMap[vs.label];
+         　td.classList.add('cell-highlight');
+        }
+      }
+
+if (stageIndex >= 16 && consonant.base === 'ர') {
+        const replacementMap = {
+          a: 'ら',
+          i: 'り',
+          u: 'る',
+          e: 'れ',
+          o: 'ろ',
+        };
+        if (replacementMap[vs.label]) {
+          displayLabel = replacementMap[vs.label];
+         　td.classList.add('cell-highlight');
+        }
+      }
+
+if (stageIndex >= 16 && consonant.base === 'வ') {
+        const replacementMap = {
+          a: 'わ',
+          i: '',
+          u: '',
+          e: '',
+          o: 'を',
+        };
+        if (replacementMap[vs.label]) {
+          displayLabel = replacementMap[vs.label];
+         　td.classList.add('cell-highlight');
+        }
+      }
       /*
     // FINAL STAGE: Convert Tamil → Japanese (Stage 17+)
 if (stageIndex >= 16) {
