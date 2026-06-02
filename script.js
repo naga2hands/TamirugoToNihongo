@@ -507,7 +507,7 @@ if (stageIndex >= 6 && consonant.base === 'ன') {
   td.className = 'syllable-cell cell-highlight';
   td.colSpan = visibleVowelSigns.length;
   const label = stageIndex >= 16 ? 'ん' : consonant.display;
-  td.innerHTML = `<div class="cell-main">${label}</div>`;
+  td.innerHTML = `<div class="cell-main">${consonant.display}</div>`;
   tr.appendChild(td);
   tbody.appendChild(tr);
   return;
