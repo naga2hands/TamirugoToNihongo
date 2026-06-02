@@ -289,35 +289,34 @@ function buildForms() {
 
 function convertToKana(consonant, vowel, stageIndex) {
 
-  // Apply same transformation rules
-
-  if (consonant === 'ச' && vowel === 'i') return 'し';   // shi
-  if (consonant === 'த' && vowel === 'i') return 'ち';   // chi
-  if (consonant === 'த' && vowel === 'u') return 'つ';   // tsu
-
-  // ப → ஹ → Japanese H row
-  if (consonant === 'ப') {
-    const map = {
-      a: 'は', i: 'ひ', u: 'ふ', e: 'へ', o: 'ほ'
+  // ✅ vowels (top row)
+  if (!consonant) {
+    const vowels = {
+      a: 'あ', i: 'い', u: 'う', e: 'え', o: 'お'
     };
+    return vowels[vowel] || null;
+  }
+
+  // transformations
+  if (consonant === 'ச' && vowel === 'i') return 'し';
+  if (consonant === 'த' && vowel === 'i') return 'ち';
+  if (consonant === 'த' && vowel === 'u') return 'つ';
+
+  if (consonant === 'ப') {
+    const map = { a:'は', i:'ひ', u:'ふ', e:'へ', o:'ほ' };
     return map[vowel];
   }
 
-  // special "ன்"
   if (consonant === 'ன') return 'ん';
 
   const baseMap = {
-    'க':'k',
-    'ச':'s',
-    'த':'t',
-    'ந':'n',
-    'ம':'m',
-    'ய':'y',
-    'ர':'r',
-    'வ':'w'
+    'க':'k','ச':'s','த':'t','ந':'n','ம':'m',
+    'ய':'y','ர':'r','வ':'w'
   };
 
   if (!baseMap[consonant]) return null;
+
+  const key = baseMap[consonant] + vowel;
 
   const kanaMap = {
     ka:'か', ki:'き', ku:'く', ke:'け', ko:'こ',
@@ -329,8 +328,6 @@ function convertToKana(consonant, vowel, stageIndex) {
     ra:'ら', ri:'り', ru:'る', re:'れ', ro:'ろ',
     wa:'わ', wo:'を'
   };
-
-  const key = baseMap[consonant] + vowel;
 
   return kanaMap[key] || null;
 }
@@ -603,21 +600,15 @@ if (stageIndex >= 6 && consonant.base === 'ன') {
         displayLabel = 'எ';
         td.classList.add('cell-highlight');  // Highlight changed cell
       }
-
 //  FINAL STAGE (Stage 17+)
-
 if (stageIndex >= 16) {
-
   const kana = convertToKana(consonant.base, vs.label, stageIndex);
-
-  console.log(consonant.base, vs.label, " → ", kana);
 
   if (kana) {
     displayLabel = kana;
-    td.classList.add('cell-highlight');
   }
 }
-
+td.innerHTML = `<div class="cell-main">${displayLabel}</div>`;
 
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       // STEP 7: DIM / BLANK RULES FOR LATER STAGES
