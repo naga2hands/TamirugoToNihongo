@@ -606,7 +606,21 @@ function renderTamilGrid(stageIndex) {
         displayLabel = 'எ';
         td.classList.add('cell-highlight');  // Highlight changed cell
       }
-/*
+
+if (stageIndex >= 16 && consonant.base === 'க') 
+        const replacementMap = {
+          a: 'か',
+          i: 'き',
+          u: 'く',
+          e: 'け',
+          o: 'こ',
+        };
+        if (replacementMap[vs.label]) {
+          displayLabel = replacementMap[vs.label];
+         // td.classList.add('cell-highlight');
+        }
+      }
+      /*
     // FINAL STAGE: Convert Tamil → Japanese (Stage 17+)
 if (stageIndex >= 16) {
   const kana = convertToKana(consonant.base, vs.label, stageIndex);
