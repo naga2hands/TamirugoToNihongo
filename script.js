@@ -283,10 +283,6 @@ function buildForms() {
     });
   });
 
-
-  return map[text] || null;
-}
-
   // Add all 216 consonant+vowel combinations (18 consonants × 12 vowel signs)
   tamilConsonants.forEach(consonant => {
     vowelSigns.forEach((vowelSign, index) => {
@@ -461,19 +457,15 @@ function renderTamilGrid(stageIndex) {
     // STEP 4: SPECIAL HANDLING FOR ன (n-row) at Stage 11+
     // Merge entire row into single cell showing only 'ன்' (virama form)
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-if (stageIndex >= 6 && consonant.base === 'ன') {
-  const td = document.createElement('td');
-  td.className = 'syllable-cell cell-highlight';
-  td.colSpan = visibleVowelSigns.length;
-
-  const label = stageIndex >= 16 ? 'ん' : consonant.display;
-
-  td.innerHTML = `<div class="cell-main">${label}</div>`;
-  tr.appendChild(td);
-  tbody.appendChild(tr);
-  return;
-}
+    if (stageIndex >= 6 && consonant.base === 'ன') {
+      const td = document.createElement('td');
+      td.className = 'syllable-cell cell-highlight';
+      td.colSpan = visibleVowelSigns.length;  // Span all vowel columns
+      td.innerHTML = `<div class="cell-main">${consonant.display}</div>`;
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+      return;  // Skip normal cell creation for this row
+    }
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     // STEP 5: CREATE CELLS FOR EACH VOWEL-COMBINATION
@@ -671,8 +663,6 @@ function updateExplanation(value) {
 
   // Step 8: Re-render Tamil grid table
   renderTamilGrid(stageIndex);
-
-
 }
 
 // ============================================================================
