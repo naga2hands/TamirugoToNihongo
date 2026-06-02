@@ -287,51 +287,6 @@ function buildForms() {
   return map[text] || null;
 }
 
-function convertToKana(consonant, vowel, stageIndex) {
-
-  // vowels (top row)
-  if (!consonant) {
-    const vowels = {
-      a: 'あ', i: 'い', u: 'う', e: 'え', o: 'お'
-    };
-    return vowels[vowel] || null;
-  }
-
-  // transformations
-  if (consonant === 'ச' && vowel === 'i') return 'し';
-  if (consonant === 'த' && vowel === 'i') return 'ち';
-  if (consonant === 'த' && vowel === 'u') return 'つ';
-
-  if (consonant === 'ப') {
-    const map = { a:'は', i:'ひ', u:'ふ', e:'へ', o:'ほ' };
-    return map[vowel];
-  }
-
-  if (consonant === 'ன') return 'ん';
-
-  const baseMap = {
-    'க':'k','ச':'s','த':'t','ந':'n','ம':'m',
-    'ய':'y','ர':'r','வ':'w'
-  };
-
-  if (!baseMap[consonant]) return null;
-
-  const key = baseMap[consonant] + vowel;
-
-  const kanaMap = {
-    ka:'か', ki:'き', ku:'く', ke:'け', ko:'こ',
-    sa:'さ', su:'す', se:'せ', so:'そ',
-    ta:'た', te:'て', to:'と',
-    na:'な', ni:'に', nu:'ぬ', ne:'ね', no:'の',
-    ma:'ま', mi:'み', mu:'む', me:'め', mo:'も',
-    ya:'や', yu:'ゆ', yo:'よ',
-    ra:'ら', ri:'り', ru:'る', re:'れ', ro:'ろ',
-    wa:'わ', wo:'を'
-  };
-
-  return kanaMap[key] || null;
-}
-
   // Add all 216 consonant+vowel combinations (18 consonants × 12 vowel signs)
   tamilConsonants.forEach(consonant => {
     vowelSigns.forEach((vowelSign, index) => {
