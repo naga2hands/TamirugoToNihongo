@@ -600,6 +600,7 @@ if (stageIndex >= 6 && consonant.base === 'ன') {
         displayLabel = 'எ';
         td.classList.add('cell-highlight');  // Highlight changed cell
       }
+
 //  FINAL STAGE (Stage 17+)
 if (stageIndex >= 16) {
   const kana = convertToKana(consonant.base, vs.label, stageIndex);
@@ -608,7 +609,8 @@ if (stageIndex >= 16) {
     displayLabel = kana;
   }
 }
-td.innerHTML = `<div class="cell-main">${displayLabel}</div>`;
+
+
 
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       // STEP 7: DIM / BLANK RULES FOR LATER STAGES
