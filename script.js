@@ -617,7 +617,7 @@ if (stageIndex >= 16 && consonant.base === 'க') {
         };
         if (replacementMap[vs.label]) {
           displayLabel = replacementMap[vs.label];
-         // td.classList.add('cell-highlight');
+          td.classList.add('cell-highlight');
         }
       }
       /*
