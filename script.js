@@ -607,7 +607,7 @@ function renderTamilGrid(stageIndex) {
         td.classList.add('cell-highlight');  // Highlight changed cell
       }
 
-if (stageIndex >= 16 && consonant.base === 'க') 
+if (stageIndex >= 16 && consonant.base === 'க') {
         const replacementMap = {
           a: 'か',
           i: 'き',
