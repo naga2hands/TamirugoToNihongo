@@ -486,7 +486,9 @@ function renderTamilGrid(stageIndex) {
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       // STEP 6: STAGE-SPECIFIC CELL REPLACEMENTS (sound transformations)
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
+      if (stageIndex >= 4 && consonant.base === 'ர') {
+          td.classList.add('cell-highlight');
+    }
       // STAGE 6: சி → ஷி (shi transformation)
       if (stageIndex >= 7 && consonant.base === 'ச' && vs.label === 'i') {
         displayLabel = 'ஷி';
@@ -521,10 +523,7 @@ function renderTamilGrid(stageIndex) {
         
       }
 
-         if (stageIndex >= 4 && consonant.base === 'ர') {
-          td.classList.add('cell-highlight');
-    }
-	
+
 	
       if (stageIndex >= 13 && consonant.base === 'ய' && vs.label === 'i') {
         displayLabel = 'இ';
