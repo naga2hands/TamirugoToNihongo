@@ -365,8 +365,6 @@ function getVisibleForms(stageIndex) {
   // Stage 5+: Show only forms with visibility === 3 (always visible)
   if (stageIndex === 4) {
     return tamilForms.filter(item => item.visibility === 3);
-    
-    td.classList.add('cell-highlight');
   }
   // Default: Show only always-visible forms
   return tamilForms.filter(item => item.visibility === 3);
@@ -453,10 +451,6 @@ function renderTamilGrid(stageIndex) {
     // Apply dim class to grayed row
     if (isStage12DimmedRow) {
       baseCell.classList.add('cell-dim');
-    }
-
-       if (stageIndex >= 4 && consonant.base === 'ர') {
-          td.classList.add('cell-highlight');
     }
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
