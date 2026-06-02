@@ -505,15 +505,20 @@ function renderTamilGrid(stageIndex) {
     // STEP 4: SPECIAL HANDLING FOR ன (n-row) at Stage 11+
     // Merge entire row into single cell showing only 'ன்' (virama form)
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    if (stageIndex >= 6 && consonant.base === 'ன') {
-      const td = document.createElement('td');
-      td.className = 'syllable-cell cell-highlight';
-      td.colSpan = visibleVowelSigns.length;  // Span all vowel columns
-      td.innerHTML = `<div class="cell-main">${consonant.display}</div>`;
-      tr.appendChild(td);
-      tbody.appendChild(tr);
-      return;  // Skip normal cell creation for this row
-    }
+
+if (stageIndex >= 6 && consonant.base === 'ன') {
+  const td = document.createElement('td');
+  td.className = 'syllable-cell cell-highlight';
+  td.colSpan = visibleVowelSigns.length;
+
+  const label = stageIndex >= 16 ? 'ん' : consonant.display;
+
+  td.innerHTML = `<div class="cell-main">${label}</div>`;
+  tr.appendChild(td);
+  tbody.appendChild(tr);
+  return;
+}
+
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     // STEP 5: CREATE CELLS FOR EACH VOWEL-COMBINATION
@@ -595,16 +600,13 @@ function renderTamilGrid(stageIndex) {
         displayLabel = 'எ';
         td.classList.add('cell-highlight');  // Highlight changed cell
       }
-
     // FINAL STAGE: Convert Tamil → Japanese (Stage 17+)
 if (stageIndex >= 16) {
   const kana = getKana(consonant.base, vs.label);
-
   if (kana) {
     displayLabel = kana;
     td.classList.add('cell-highlight');
   } else {
-    displayLabel = '';
   }
 }
 
