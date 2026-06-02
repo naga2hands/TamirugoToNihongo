@@ -283,47 +283,56 @@ function buildForms() {
     });
   });
 
-  function convertTableToJapanese(stageIndex) {
-  if (stageIndex < 16) return;
-
-  const cells = document.querySelectorAll('.syllable-cell .cell-main');
-
-  cells.forEach(cell => {
-    const text = cell.textContent.trim();
-
-    if (!text) return;
-
-    const kana = tamilToKana(text);
-
-    if (kana) {
-      cell.textContent = kana;
-      cell.parentElement.classList.add('cell-highlight');
-    }
-  });
-}
-
-function tamilToKana(text) {
-
-  const map = {
-    'க': 'か','கி':'き','கு':'く','கெ':'け','கொ':'こ',
-    'ச': 'さ','ஷி':'し','சு':'す','செ':'せ','சொ':'そ',
-    'த': 'た','ச்சி':'ち','ட்சு':'つ','தெ':'て','தொ':'と',
-    'ந': 'な','நி':'に','நு':'ぬ','நெ':'ね','நொ':'の',
-
-    'ஹ': 'は','ஹி':'ひ','ஃபு':'ふ','ஹெ':'へ','ஹொ':'ほ',
-
-    'ம': 'ま','மி':'み','மு':'む','மெ':'め','மொ':'も',
-    'ய': 'や','யு':'ゆ','யொ':'よ',
-    'ர': 'ら','ரி':'り','ரு':'る','ரெ':'れ','ரொ':'ろ',
-
-    'வ': 'わ','வொ':'を',
-
-    'ன்': 'ん',
-
-    'அ':'あ','இ':'い','உ':'う','எ':'え','ஒ':'お'
-  };
 
   return map[text] || null;
+}
+
+function convertToKana(consonant, vowel, stageIndex) {
+
+  // Apply same transformation rules
+
+  if (consonant === 'ச' && vowel === 'i') return 'し';   // shi
+  if (consonant === 'த' && vowel === 'i') return 'ち';   // chi
+  if (consonant === 'த' && vowel === 'u') return 'つ';   // tsu
+
+  // ப → ஹ → Japanese H row
+  if (consonant === 'ப') {
+    const map = {
+      a: 'は', i: 'ひ', u: 'ふ', e: 'へ', o: 'ほ'
+    };
+    return map[vowel];
+  }
+
+  // special "ன்"
+  if (consonant === 'ன') return 'ん';
+
+  const baseMap = {
+    'க':'k',
+    'ச':'s',
+    'த':'t',
+    'ந':'n',
+    'ம':'m',
+    'ய':'y',
+    'ர':'r',
+    'வ':'w'
+  };
+
+  if (!baseMap[consonant]) return null;
+
+  const kanaMap = {
+    ka:'か', ki:'き', ku:'く', ke:'け', ko:'こ',
+    sa:'さ', su:'す', se:'せ', so:'そ',
+    ta:'た', te:'て', to:'と',
+    na:'な', ni:'に', nu:'ぬ', ne:'ね', no:'の',
+    ma:'ま', mi:'み', mu:'む', me:'め', mo:'も',
+    ya:'や', yu:'ゆ', yo:'よ',
+    ra:'ら', ri:'り', ru:'る', re:'れ', ro:'ろ',
+    wa:'わ', wo:'を'
+  };
+
+  const key = baseMap[consonant] + vowel;
+
+  return kanaMap[key] || null;
 }
 
   // Add all 216 consonant+vowel combinations (18 consonants × 12 vowel signs)
@@ -500,15 +509,19 @@ function renderTamilGrid(stageIndex) {
     // STEP 4: SPECIAL HANDLING FOR ன (n-row) at Stage 11+
     // Merge entire row into single cell showing only 'ன்' (virama form)
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    if (stageIndex >= 6 && consonant.base === 'ன') {
-      const td = document.createElement('td');
-      td.className = 'syllable-cell cell-highlight';
-      td.colSpan = visibleVowelSigns.length;  // Span all vowel columns
-      td.innerHTML = `<div class="cell-main">${consonant.display}</div>`;
-      tr.appendChild(td);
-      tbody.appendChild(tr);
-      return;  // Skip normal cell creation for this row
-    }
+
+if (stageIndex >= 6 && consonant.base === 'ன') {
+  const td = document.createElement('td');
+  td.className = 'syllable-cell cell-highlight';
+  td.colSpan = visibleVowelSigns.length;
+
+  const label = stageIndex >= 16 ? 'ん' : consonant.display;
+
+  td.innerHTML = `<div class="cell-main">${label}</div>`;
+  tr.appendChild(td);
+  tbody.appendChild(tr);
+  return;
+}
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     // STEP 5: CREATE CELLS FOR EACH VOWEL-COMBINATION
@@ -590,6 +603,21 @@ function renderTamilGrid(stageIndex) {
         displayLabel = 'எ';
         td.classList.add('cell-highlight');  // Highlight changed cell
       }
+
+//  FINAL STAGE (Stage 17+)
+
+if (stageIndex >= 16) {
+
+  const kana = convertToKana(consonant.base, vs.label, stageIndex);
+
+  console.log(consonant.base, vs.label, " → ", kana);
+
+  if (kana) {
+    displayLabel = kana;
+    td.classList.add('cell-highlight');
+  }
+}
+
 
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       // STEP 7: DIM / BLANK RULES FOR LATER STAGES
@@ -707,8 +735,6 @@ function updateExplanation(value) {
   // Step 8: Re-render Tamil grid table
   renderTamilGrid(stageIndex);
 
-// Convert after rendering
-convertTableToJapanese(stageIndex);
 
 }
 
