@@ -304,30 +304,37 @@ function buildForms() {
     });
   });
 
-  function getKana(consonant, vowel) {
+function getKana(consonant, vowel) {
 
-  // special phonetic transformations
-  if (consonant === 'ச' && vowel === 'i') return 'し';   // shi
-  if (consonant === 'த' && vowel === 'i') return 'ち';   // chi
-  if (consonant === 'த' && vowel === 'u') return 'つ';   // tsu
+  // special transformations
+  if (consonant === 'ச' && vowel === 'i') return 'し';
+  if (consonant === 'த' && vowel === 'i') return 'ち';
+  if (consonant === 'த' && vowel === 'u') return 'つ';
 
-  // ப → ஹ → Japanese "h" row
   if (consonant === 'ப') {
-    const map = { a: 'は', i: 'ひ', u: 'ふ', e: 'へ', o: 'ほ' };
-    return map[vowel];
+    const map = { a:'は', i:'ひ', u:'ふ', e:'へ', o:'ほ' };
+    return map[vowel] || null;
   }
 
-  // special final "ன்"
   if (consonant === 'ன') return 'ん';
 
   const baseMap = {
-    'க':'k','ச':'s','த':'t','ந':'n','ம':'m',
-    'ய':'y','ர':'r','வ':'w'
+    'க':'k',
+    'ச':'s',
+    'த':'t',
+    'ந':'n',
+    'ம':'m',
+    'ய':'y',
+    'ர':'r',
+    'வ':'w'
   };
+
+  // FIX: stop if consonant not mapped
+  if (!baseMap[consonant]) return null;
 
   const key = baseMap[consonant] + vowel;
 
-  return kanaMap[key] || '';
+  return kanaMap[key] || null;
 }
 
 
@@ -600,15 +607,17 @@ if (stageIndex >= 6 && consonant.base === 'ன') {
         displayLabel = 'எ';
         td.classList.add('cell-highlight');  // Highlight changed cell
       }
-    // FINAL STAGE: Convert Tamil → Japanese (Stage 17+)
+// FINAL STAGE: Tamil → Japanese conversion (Stage 17+)
 if (stageIndex >= 16) {
   const kana = getKana(consonant.base, vs.label);
   if (kana) {
     displayLabel = kana;
     td.classList.add('cell-highlight');
-  } else {
   }
+  // DO NOT blank anything
+  // if no kana → keep existing Tamil displayLabel
 }
+
 
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       // STEP 7: DIM / BLANK RULES FOR LATER STAGES
