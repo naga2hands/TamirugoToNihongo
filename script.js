@@ -622,7 +622,6 @@ if (stageIndex >= 16 && consonant.base === 'க') {
         };
         if (replacementMap[vs.label]) {
           displayLabel = replacementMap[vs.label];
-//          td.classList.add('cell-highlight');
         }
       }
 if (stageIndex >= 16 && consonant.base === 'ச') {
@@ -635,7 +634,6 @@ if (stageIndex >= 16 && consonant.base === 'ச') {
         };
         if (replacementMap[vs.label]) {
           displayLabel = replacementMap[vs.label];
-         　td.classList.add('cell-highlight');
         }
       }
 	  
@@ -649,7 +647,6 @@ if (stageIndex >= 16 && consonant.base === 'த') {
         };
         if (replacementMap[vs.label]) {
           displayLabel = replacementMap[vs.label];
-         　td.classList.add('cell-highlight');
         }
       }
 
@@ -663,7 +660,6 @@ if (stageIndex >= 16 && consonant.base === 'ந') {
         };
         if (replacementMap[vs.label]) {
           displayLabel = replacementMap[vs.label];
-         　td.classList.add('cell-highlight');
         }
       }
 
@@ -677,7 +673,6 @@ if (stageIndex >= 16 && consonant.base === 'ப') {
         };
         if (replacementMap[vs.label]) {
           displayLabel = replacementMap[vs.label];
-         　td.classList.add('cell-highlight');
         }
       }
 
@@ -691,7 +686,6 @@ if (stageIndex >= 16 && consonant.base === 'ம') {
         };
         if (replacementMap[vs.label]) {
           displayLabel = replacementMap[vs.label];
-         　td.classList.add('cell-highlight');
         }
       }
 
@@ -705,7 +699,6 @@ if (stageIndex >= 16 && consonant.base === 'ய') {
         };
         if (replacementMap[vs.label]) {
           displayLabel = replacementMap[vs.label];
-         　td.classList.add('cell-highlight');
         }
       }
 
@@ -719,7 +712,6 @@ if (stageIndex >= 16 && consonant.base === 'ர') {
         };
         if (replacementMap[vs.label]) {
           displayLabel = replacementMap[vs.label];
-         　td.classList.add('cell-highlight');
         }
       }
 
@@ -733,7 +725,6 @@ if (stageIndex >= 16 && consonant.base === 'வ') {
         };
         if (replacementMap[vs.label]) {
           displayLabel = replacementMap[vs.label];
-         　td.classList.add('cell-highlight');
         }
       }
       /*
