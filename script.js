@@ -455,6 +455,10 @@ function renderTamilGrid(stageIndex) {
       baseCell.classList.add('cell-dim');
     }
 
+       if (stageIndex >= 4 && consonant.base === 'ர') {
+          td.classList.add('cell-highlight');
+    }
+
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     // STEP 4: SPECIAL HANDLING FOR ன (n-row) at Stage 11+
     // Merge entire row into single cell showing only 'ன்' (virama form)
@@ -523,19 +527,47 @@ function renderTamilGrid(stageIndex) {
         
       }
 
+         if (stageIndex >= 4 && consonant.base === 'ர') {
+          td.classList.add('cell-highlight');
+    }
+	
+	
+      if (stageIndex >= 13 && consonant.base === 'ய' && vs.label === 'i') {
+        displayLabel = 'இ';
+        td.classList.add('cell-highlight');  // Highlight changed cell
+      }
+	  
+	  if (stageIndex >= 13 && consonant.base === 'ய' && vs.label === 'e') {
+        displayLabel = 'எ';
+        td.classList.add('cell-highlight');  // Highlight changed cell
+      }
+	  
+	  if (stageIndex >= 15 && consonant.base === 'வ' && vs.label === 'i') {
+        displayLabel = 'இ';
+        td.classList.add('cell-highlight');  // Highlight changed cell
+      }
+	  
+	  if (stageIndex >= 15 && consonant.base === 'வ' && vs.label === 'u') {
+        displayLabel = 'உ';
+        td.classList.add('cell-highlight');  // Highlight changed cell
+      }
+	  
+	  if (stageIndex >= 15 && consonant.base === 'வ' && vs.label === 'e') {
+        displayLabel = 'எ';
+        td.classList.add('cell-highlight');  // Highlight changed cell
+      }
+
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       // STEP 7: DIM / BLANK RULES FOR LATER STAGES
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
       // STAGE 13: Dim யி and யெ cells
       const isStage13YDim = stageIndex >= 12 && consonant.base === 'ய' && (vs.label === 'i' || vs.label === 'e');
-      //td.classList.add('cell-highlight');
       // STAGE 14: Blank யி and யெ cells (remove text)
       const isStage14YBlank = stageIndex >= 13 && consonant.base === 'ய' && (vs.label === 'i' || vs.label === 'e');
 
       // STAGE 15: Dim வி, வு, வெ cells
       const isStage15VDim = stageIndex >= 14 && consonant.base === 'வ' && (vs.label === 'i' || vs.label === 'u' || vs.label === 'e');
-      //td.classList.add('cell-highlight');
       // STAGE 16: Blank வி, வு, வெ cells (remove text)
       const isStage16VBlank = stageIndex >= 15 && consonant.base === 'வ' && (vs.label === 'i' || vs.label === 'u' || vs.label === 'e');
 
