@@ -165,7 +165,7 @@ const stages = [
     label: 'இறுதி நிலை',
     note: `\n    எழுத்து எனப்படுப
     அகரம் முதல்
-    னகர இறுவாய் முப்பஃது என்ப (தொல், எழுத்து-1-3)\n
+    னகர இறுவாய் முப்பஃது என்ப (தொல், எழுத்து-1-3)
     
     தொல்காப்பியர் அகரம் முதல் னகரம் வரை 30 எழுத்துக்கள் என்பார், யப்பானிய மொழியிலோ அதே அகரம் முதல் னகரம் வரை 46 எழுத்துக்கள் எனலாம். யப்பானிய மொழியில் இந்த 46 எழுத்துகளை "அடிப்படை எழுத்துகள்" என்பர், இன்னும் பல ஒலிகள் யப்பானிய மொழியில் உள்ளன, என்றாலும் வரிவடிவங்கள் இவ்வளவுதான் இவற்றை வைத்துத்தான் மற்ற ஒலிகளை எழுதுகின்றனர். இது குறித்து பின்னர் விரிவாகவும் எளிமையாகவும் பார்க்கலாம்.\n
     நான் கையாண்ட இந்த முறையை வைத்து தமிழிலிருந்துதான் யப்பானிய மொழி பிறந்தது எனச்சொல்வதாய் கொள்ளாதீர்கள், அப்படி செய்யின் அது மொட்டைத்தலைக்கும் முலங்காலுக்கும் முடிச்சு போடுவது போல் ஆகிவிடும்.\n
@@ -255,6 +255,27 @@ const japaneseVowelMap = {
 };
 
 // ============================================================================
+// JAPANESE KANA MAP (Hiragana)
+// ============================================================================
+const kanaMap = {
+  a: 'あ', i: 'い', u: 'う', e: 'え', o: 'お',
+
+  ka: 'か', ki: 'き', ku: 'く', ke: 'け', ko: 'こ',
+  sa: 'さ', shi: 'し', su: 'す', se: 'せ', so: 'そ',
+  ta: 'た', chi: 'ち', tsu: 'つ', te: 'て', to: 'と',
+  na: 'な', ni: 'に', nu: 'ぬ', ne: 'ね', no: 'の',
+
+  ha: 'は', hi: 'ひ', fu: 'ふ', he: 'へ', ho: 'ほ',
+
+  ma: 'ま', mi: 'み', mu: 'む', me: 'め', mo: 'も',
+  ya: 'や', yu: 'ゆ', yo: 'よ',
+  ra: 'ら', ri: 'り', ru: 'る', re: 'れ', ro: 'ろ',
+
+  wa: 'わ', wo: 'を',
+  n: 'ん'
+};
+
+// ============================================================================
 // 7. STAGE-SPECIFIC CONFIGURATION ARRAYS
 // ============================================================================
 const longVowelLabels = ['ā', 'ī', 'ū', 'ē', 'ai', 'ō', 'au'];  // All long vowels removed at Stage 3
@@ -282,6 +303,33 @@ function buildForms() {
       mapping: vowel.japanese,
     });
   });
+
+  function getKana(consonant, vowel) {
+
+  // special phonetic transformations
+  if (consonant === 'ச' && vowel === 'i') return 'し';   // shi
+  if (consonant === 'த' && vowel === 'i') return 'ち';   // chi
+  if (consonant === 'த' && vowel === 'u') return 'つ';   // tsu
+
+  // ப → ஹ → Japanese "h" row
+  if (consonant === 'ப') {
+    const map = { a: 'は', i: 'ひ', u: 'ふ', e: 'へ', o: 'ほ' };
+    return map[vowel];
+  }
+
+  // special final "ன்"
+  if (consonant === 'ன') return 'ん';
+
+  const baseMap = {
+    'க':'k','ச':'s','த':'t','ந':'n','ம':'m',
+    'ய':'y','ர':'r','வ':'w'
+  };
+
+  const key = baseMap[consonant] + vowel;
+
+  return kanaMap[key] || '';
+}
+
 
   // Add all 216 consonant+vowel combinations (18 consonants × 12 vowel signs)
   tamilConsonants.forEach(consonant => {
@@ -486,7 +534,7 @@ function renderTamilGrid(stageIndex) {
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       // STEP 6: STAGE-SPECIFIC CELL REPLACEMENTS (sound transformations)
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-      if (stageIndex >= 4 && consonant.base === 'ர') {
+      if (stageIndex >= 3 && consonant.base === 'ர') {
           td.classList.add('cell-highlight');
     }
       // STAGE 6: சி → ஷி (shi transformation)
@@ -522,33 +570,43 @@ function renderTamilGrid(stageIndex) {
         }
         
       }
-
-
 	
-      if (stageIndex >= 13 && consonant.base === 'ய' && vs.label === 'i') {
+      if (stageIndex >= 12 && consonant.base === 'ய' && vs.label === 'i') {
         displayLabel = 'இ';
         td.classList.add('cell-highlight');  // Highlight changed cell
       }
 	  
-	  if (stageIndex >= 13 && consonant.base === 'ய' && vs.label === 'e') {
+	  if (stageIndex >= 12 && consonant.base === 'ய' && vs.label === 'e') {
         displayLabel = 'எ';
         td.classList.add('cell-highlight');  // Highlight changed cell
       }
 	  
-	  if (stageIndex >= 15 && consonant.base === 'வ' && vs.label === 'i') {
+	  if (stageIndex >= 14 && consonant.base === 'வ' && vs.label === 'i') {
         displayLabel = 'இ';
         td.classList.add('cell-highlight');  // Highlight changed cell
       }
 	  
-	  if (stageIndex >= 15 && consonant.base === 'வ' && vs.label === 'u') {
+	  if (stageIndex >= 14 && consonant.base === 'வ' && vs.label === 'u') {
         displayLabel = 'உ';
         td.classList.add('cell-highlight');  // Highlight changed cell
       }
 	  
-	  if (stageIndex >= 15 && consonant.base === 'வ' && vs.label === 'e') {
+	  if (stageIndex >= 14 && consonant.base === 'வ' && vs.label === 'e') {
         displayLabel = 'எ';
         td.classList.add('cell-highlight');  // Highlight changed cell
       }
+
+    // FINAL STAGE: Convert Tamil → Japanese (Stage 17+)
+if (stageIndex >= 16) {
+  const kana = getKana(consonant.base, vs.label);
+
+  if (kana) {
+    displayLabel = kana;
+    td.classList.add('cell-highlight');
+  } else {
+    displayLabel = '';
+  }
+}
 
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       // STEP 7: DIM / BLANK RULES FOR LATER STAGES
@@ -558,7 +616,6 @@ function renderTamilGrid(stageIndex) {
       const isStage13YDim = stageIndex >= 12 && consonant.base === 'ய' && (vs.label === 'i' || vs.label === 'e');
       // STAGE 14: Blank யி and யெ cells (remove text)
       const isStage14YBlank = stageIndex >= 13 && consonant.base === 'ய' && (vs.label === 'i' || vs.label === 'e');
-
       // STAGE 15: Dim வி, வு, வெ cells
       const isStage15VDim = stageIndex >= 14 && consonant.base === 'வ' && (vs.label === 'i' || vs.label === 'u' || vs.label === 'e');
       // STAGE 16: Blank வி, வு, வெ cells (remove text)
