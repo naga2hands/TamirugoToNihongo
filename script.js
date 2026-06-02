@@ -365,6 +365,7 @@ function getVisibleForms(stageIndex) {
   // Stage 5+: Show only forms with visibility === 3 (always visible)
   if (stageIndex === 4) {
     return tamilForms.filter(item => item.visibility === 3);
+    
     td.classList.add('cell-highlight');
   }
   // Default: Show only always-visible forms
@@ -528,13 +529,13 @@ function renderTamilGrid(stageIndex) {
 
       // STAGE 13: Dim யி and யெ cells
       const isStage13YDim = stageIndex >= 12 && consonant.base === 'ய' && (vs.label === 'i' || vs.label === 'e');
-      td.classList.add('cell-highlight');
+      //td.classList.add('cell-highlight');
       // STAGE 14: Blank யி and யெ cells (remove text)
       const isStage14YBlank = stageIndex >= 13 && consonant.base === 'ய' && (vs.label === 'i' || vs.label === 'e');
 
       // STAGE 15: Dim வி, வு, வெ cells
       const isStage15VDim = stageIndex >= 14 && consonant.base === 'வ' && (vs.label === 'i' || vs.label === 'u' || vs.label === 'e');
-      td.classList.add('cell-highlight');
+      //td.classList.add('cell-highlight');
       // STAGE 16: Blank வி, வு, வெ cells (remove text)
       const isStage16VBlank = stageIndex >= 15 && consonant.base === 'வ' && (vs.label === 'i' || vs.label === 'u' || vs.label === 'e');
 
