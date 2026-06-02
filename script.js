@@ -185,18 +185,18 @@ const stages = [
 // 3. VOWEL DATA — 12 Tamil vowels with their IPA-like names and Japanese equivalents
 // ============================================================================
 const tamilVowels = [
-  { label: 'அ', name: 'a', japanese: 'a' },    // Short 'a' — inherent vowel
-  { label: 'ஆ', name: 'ā', japanese: 'a' },    // Long 'ā' — same Japanese mora
-  { label: 'இ', name: 'i', japanese: 'i' },    // Short 'i'
-  { label: 'ஈ', name: 'ī', japanese: 'i' },    // Long 'ī' — same Japanese mora
-  { label: 'உ', name: 'u', japanese: 'u' },    // Short 'u'
-  { label: 'ஊ', name: 'ū', japanese: 'u' },   // Long 'ū' — same Japanese mora
-  { label: 'எ', name: 'e', japanese: 'e' },    // Short 'e'
-  { label: 'ஏ', name: 'ē', japanese: 'e' },    // Long 'ē' — same Japanese mora
-  { label: 'ஐ', name: 'ai', japanese: 'ai' },  // Diphthong 'ai'
-  { label: 'ஒ', name: 'o', japanese: 'o' },    // Short 'o'
-  { label: 'ஓ', name: 'ō', japanese: 'o' },    // Long 'ō' — same Japanese mora
-  { label: 'ஔ', name: 'au', japanese: 'au' },  // Diphthong 'au'
+  { label: 'அ', name: 'a', japanese: 'あ' },    // Short 'a' — inherent vowel
+  { label: 'ஆ', name: 'ā', japanese: 'ああ' },    // Long 'ā' — same Japanese mora
+  { label: 'இ', name: 'i', japanese: 'い' },    // Short 'i'
+  { label: 'ஈ', name: 'ī', japanese: 'いい' },    // Long 'ī' — same Japanese mora
+  { label: 'உ', name: 'u', japanese: 'う' },    // Short 'u'
+  { label: 'ஊ', name: 'ū', japanese: 'うう' },   // Long 'ū' — same Japanese mora
+  { label: 'எ', name: 'e', japanese: 'え' },    // Short 'e'
+  { label: 'ஏ', name: 'ē', japanese: 'ええ' },    // Long 'ē' — same Japanese mora
+  { label: 'ஐ', name: 'ai', japanese: 'あい' },  // Diphthong 'ai'
+  { label: 'ஒ', name: 'o', japanese: 'お' },    // Short 'o'
+  { label: 'ஓ', name: 'ō', japanese: 'おお' },    // Long 'ō' — same Japanese mora
+  { label: 'ஔ', name: 'au', japanese: 'あう' },  // Diphthong 'au'
 ];
 
 // ============================================================================
@@ -454,15 +454,19 @@ function renderTamilGrid(stageIndex) {
     : vowelSigns;                                                   // Keep all vowels
 
   // Create vowel header cells (column titles)
-  visibleVowelSigns.forEach((vs) => {
-    const th = document.createElement('th');
-    // Find Tamil vowel glyph matching the label
-    const match = tamilVowels.find(tv => tv.name === vs.label);
-    const vowelGlyph = match ? match.label : vs.label;  // Show 'அ' instead of 'a'
-    th.textContent = vowelGlyph;
-    th.className = 'vowel-header';
-    headRow.appendChild(th);
-  });
+visibleVowelSigns.forEach((vs) => {
+  const th = document.createElement('th');
+  const match = tamilVowels.find(tv => tv.name === vs.label);
+  let vowelGlyph = match ? match.label : vs.label;
+  //  Stage 17+ override
+  if (stageIndex >= 16 && match) {
+    vowelGlyph = match.japanese;
+  }
+  th.textContent = vowelGlyph;
+  th.className = 'vowel-header';
+  headRow.appendChild(th);
+});
+
 
   thead.appendChild(headRow);
   table.appendChild(thead);
@@ -618,7 +622,7 @@ if (stageIndex >= 16 && consonant.base === 'க') {
         };
         if (replacementMap[vs.label]) {
           displayLabel = replacementMap[vs.label];
-          td.classList.add('cell-highlight');
+//          td.classList.add('cell-highlight');
         }
       }
 if (stageIndex >= 16 && consonant.base === 'ச') {
