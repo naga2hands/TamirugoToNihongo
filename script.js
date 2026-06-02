@@ -601,19 +601,6 @@ if (stageIndex >= 6 && consonant.base === 'ன') {
         td.classList.add('cell-highlight');  // Highlight changed cell
       }
 
-// transformations (ஷி, ச்சி, etc...)
-
-if (stageIndex >= 16) {
-  const kana = convertToKana(consonant.base, vs.label, stageIndex);
-  console.log(consonant.base, vs.label, " → ", kana);
-  if (kana) {
-    displayLabel = kana;
-    td.classList.add('cell-highlight'); 
-  }
-}
-// THEN render
-//td.innerHTML = `<div class="cell-main">${displayLabel}</div>`;
-
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       // STEP 7: DIM / BLANK RULES FOR LATER STAGES
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
