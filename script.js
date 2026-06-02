@@ -255,6 +255,27 @@ const japaneseVowelMap = {
 };
 
 // ============================================================================
+// JAPANESE KANA MAP (Hiragana)
+// ============================================================================
+const kanaMap = {
+  a: 'あ', i: 'い', u: 'う', e: 'え', o: 'お',
+
+  ka: 'か', ki: 'き', ku: 'く', ke: 'け', ko: 'こ',
+  sa: 'さ', shi: 'し', su: 'す', se: 'せ', so: 'そ',
+  ta: 'た', chi: 'ち', tsu: 'つ', te: 'て', to: 'と',
+  na: 'な', ni: 'に', nu: 'ぬ', ne: 'ね', no: 'の',
+
+  ha: 'は', hi: 'ひ', fu: 'ふ', he: 'へ', ho: 'ほ',
+
+  ma: 'ま', mi: 'み', mu: 'む', me: 'め', mo: 'も',
+  ya: 'や', yu: 'ゆ', yo: 'よ',
+  ra: 'ら', ri: 'り', ru: 'る', re: 'れ', ro: 'ろ',
+
+  wa: 'わ', wo: 'を',
+  n: 'ん'
+};
+
+// ============================================================================
 // 7. STAGE-SPECIFIC CONFIGURATION ARRAYS
 // ============================================================================
 const longVowelLabels = ['ā', 'ī', 'ū', 'ē', 'ai', 'ō', 'au'];  // All long vowels removed at Stage 3
@@ -282,6 +303,33 @@ function buildForms() {
       mapping: vowel.japanese,
     });
   });
+
+  function getKana(consonant, vowel) {
+
+  // special phonetic transformations
+  if (consonant === 'ச' && vowel === 'i') return 'し';   // shi
+  if (consonant === 'த' && vowel === 'i') return 'ち';   // chi
+  if (consonant === 'த' && vowel === 'u') return 'つ';   // tsu
+
+  // ப → ஹ → Japanese "h" row
+  if (consonant === 'ப') {
+    const map = { a: 'は', i: 'ひ', u: 'ふ', e: 'へ', o: 'ほ' };
+    return map[vowel];
+  }
+
+  // special final "ன்"
+  if (consonant === 'ன') return 'ん';
+
+  const baseMap = {
+    'க':'k','ச':'s','த':'t','ந':'n','ம':'m',
+    'ய':'y','ர':'r','வ':'w'
+  };
+
+  const key = baseMap[consonant] + vowel;
+
+  return kanaMap[key] || '';
+}
+
 
   // Add all 216 consonant+vowel combinations (18 consonants × 12 vowel signs)
   tamilConsonants.forEach(consonant => {
@@ -547,6 +595,18 @@ function renderTamilGrid(stageIndex) {
         displayLabel = 'எ';
         td.classList.add('cell-highlight');  // Highlight changed cell
       }
+
+    // FINAL STAGE: Convert Tamil → Japanese (Stage 17+)
+if (stageIndex >= 16) {
+  const kana = getKana(consonant.base, vs.label);
+
+  if (kana) {
+    displayLabel = kana;
+    td.classList.add('cell-highlight');
+  } else {
+    displayLabel = '';
+  }
+}
 
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       // STEP 7: DIM / BLANK RULES FOR LATER STAGES
