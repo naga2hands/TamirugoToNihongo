@@ -508,7 +508,8 @@ function renderTamilGrid(stageIndex) {
       const td = document.createElement('td');
       td.className = 'syllable-cell cell-highlight';
       td.colSpan = visibleVowelSigns.length;  // Span all vowel columns
-      td.innerHTML = `<div class="cell-main">${consonant.display}</div>`;
+      const label = stageIndex >= 16 ? 'ん' : consonant.display;
+      td.innerHTML = `<div class="cell-main">${label}</div>`;
       tr.appendChild(td);
       tbody.appendChild(tr);
       return;  // Skip normal cell creation for this row
@@ -641,6 +642,20 @@ if (stageIndex >= 16 && consonant.base === 'த') {
           u: 'つ',
           e: 'て',
           o: 'と',
+        };
+        if (replacementMap[vs.label]) {
+          displayLabel = replacementMap[vs.label];
+         　td.classList.add('cell-highlight');
+        }
+      }
+
+if (stageIndex >= 16 && consonant.base === 'ந') {
+        const replacementMap = {
+          a: 'な',
+          i: 'に',
+          u: 'ぬ',
+          e: 'ね',
+          o: 'の',
         };
         if (replacementMap[vs.label]) {
           displayLabel = replacementMap[vs.label];
