@@ -15,7 +15,7 @@ const stageMilestones = document.getElementById('stageMilestones');
 // ============================================================================
 const stages = [
   {
-    label: 'தமிழ் எழுத்துகள்/ஒலிகள் ஒரு பார்வை',
+    label: 'தமிழ் எழுத்துகள் ஒரு பார்வை',
     note: `    தமிழ் இலக்கண நூல்களில் எழுத்து என்னும் சொல், மொழியில் வழங்கும் ஒலிகளைக் குறிக்கவும், அவ்வொலிகளுக்குறிய வரிவடிவத்தைக் குறிக்கவும் பயன்படுத்தப்பட்டுள்ளது. அவ்வகையில் 'அ' என்னும் எழுத்து ஒலிவடிவம், வரிவடிவம் இரண்டையும் குறித்து நிற்கின்றது.\n
     தமிழ் எழுத்துகளை தொல்காப்பியர் பகுத்து ஆய்ந்து விளக்கியிருக்கிறார், தமிழ் மொழிக்கு இலக்கணம் எழுதியவர் என்பதைக்காட்டிலும், மொழியியலாளர் என்ற பெயர் அவருக்குச் சிறப்பாக இருக்கும். தமிழ் நிலப்பரப்பின் பரந்துபட்ட மொழியியல் சிந்தனையின் தொடர்ச்சி இவர் எனலாம், அவ்வழியில் உங்களை தமிழின் எழுத்துக்கள் வழியே யப்பானிய மொழியின் அடிப்படை ஒலிகளுக்கு அழைத்துச்செல்வதே இத்தளத்தின் நோக்கம். யப்பானிய வரி வடிவங்களை பின்னொரு நாளில் கற்கலாம்.\n
     தமிழின் உயிர் 12, மெய் 18 சேர்ந்த 30 எழுத்துகளை முதல் எழுத்து என்கிறோம், உயிரும் மெய்யும் இணைந்து பிறக்கும் 216 எழுத்துகளை உயிர்மெய் என்கிறோம், 'ஃ' எனும் ஆய்தம்/தனியெழுத்து சேர்த்து மொத்த எழுத்துகள் 247 ஆகிறது (12+18+216+1=247). அவற்றைத்தான் இங்கே பார்க்கிறீர்கள்.`,
@@ -78,7 +78,7 @@ const stages = [
   },
 
   {
-    label: 'ன் எனுஞ்சிறப்பு ஓசை',
+    label: 'ன் எனுஞ்சிறப்பு ஒலி',
     note: `    சென்ற படிநிலையில் 'ந்' ஒலியை 'ன்' கொண்டே எழுதுகிறார்கள் என்று பார்த்தோம், மாற்றாக 'ன்' வரிசையிலுள்ள "ன னி னு னெ னொ" விற்கு பதில் யப்பானிய மொழியில் ஏற்கனவே உள்ள "ந நி நு நெ நொ" ஒலிகளை பயன்படுத்துகிறார்கள்.\n
     ஆக கடைசி வரிசையான 'ன' வரிசை முற்றிலுமாக நீக்கப்பட்டு அவ்விடத்தை 'ன்' மட்டும் எடுத்துக்கொள்கிறது. இந்த "ன்" ஒலிக்கு யப்பானிய மொழியில் "ஹட்சுஓன்" என்று பெயர், அப்படியென்றால் "மூக்கொலி", மூக்கிலிருந்து பிறக்கும் ஒலி எனப்பொருள் கொள்ளலாம்.\n
     இன்னும் சொல்லப்போனால் இதனை, "தனிஒலி" அல்லது "சிறப்புஒலி" என்றும் வழங்குவர் ஏனெனில் இது பல ஒலிகளை தன்னகத்தேக் கொண்டது.\n
@@ -174,8 +174,8 @@ const stages = [
   },
 
   {
-    label: 'இறுதி நிலை',
-    note: `    இது இறுதி நிலை. தமிழ்-யப்பானிய ஒலிப் பயணம் முற்றுப்பெற்றது.\n
+    label: 'கிஹொன்-ஒன்',
+    note: `    இது இறுதி நிலை. தமிழ்-யப்பானிய ஒலிப் பயணம் முற்றிற்று.\n
     இப்போது நீங்கள் பார்ப்பது, யப்பானிய மொழியில் மூன்று வரிவடிவங்களுள் ஒன்றான "ஹிரகன", இன்னும் "கதகன " மற்றும் "கான்ஜி" என இரு வரிவடிவங்கள் உள்ளன. இவையெல்லாம் கற்க இன்னும் சுவையாக இருக்கும், இதுகுறித்து பின்னர் விரிவாகப்பார்க்கலாம்.\n
     "அடிப்படை ஒலிகள்" எனப்படுகிற யப்பானிய "கிஹொன் ஒன்" இவை, இவற்றை இன்னும் எளிமையாக கற்க ஒரு பிரபல பாடலின் சுட்டி உங்களுக்காக:\n
     <a href="https://www.youtube.com/watch?v=2qk4gCZuSjk" target="_blank" rel="noopener noreferrer">யப்பானிய அடிப்படை ஒலி பயில ஒரு பாடல்</a>`,
@@ -243,7 +243,7 @@ const vowelSigns = [
   { marker: 'ோ', label: 'ō' },                      // Long ō marker
   { marker: 'ௌ', label: 'au' },                     // Diphthong au marker
 ];
-/*
+
 // ============================================================================
 // 6. JAPANESE VOWEL MAPPING — Map long Tamil vowels to their Japanese mora base
 // ============================================================================
@@ -256,7 +256,7 @@ const japaneseVowelMap = {
   o: 'o', ō: 'o',     // Both 'o' and 'ō' → Japanese 'o' mora
   au: 'au',           // Diphthong stays as 'au'
 };
-*/
+
 // ============================================================================
 // 7. STAGE-SPECIFIC CONFIGURATION ARRAYS
 // ============================================================================
@@ -264,7 +264,7 @@ const longVowelLabels = ['ā', 'ī', 'ū', 'ē', 'ai', 'ō', 'au'];  // All long
 
 const grayedConsonantsStage3 = ['ங', 'ஞ', 'ட', 'ண', 'ல', 'ழ', 'ள', 'ற'];  // Consonants dimmed at Stage 4, removed at Stage 5
 
-const deprecatedConsonantsStage12 = ['க', 'ங', 'ச', 'ஞ', 'ட', 'ண', 'த', 'ந', 'ப', 'ம', 'ய', 'ர', 'ல', 'வ', 'ழ', 'ள', 'ற', 'ன'];  // All consonants dimmed at Stage 12
+const deprecatedConsonantsStage5 = ['க', 'ங', 'ச', 'ஞ', 'ட', 'ண', 'த', 'ந', 'ப', 'ம', 'ய', 'ர', 'ல', 'வ', 'ழ', 'ள', 'ற', 'ன'];  // All consonants dimmed at Stage 12
 
 // ============================================================================
 // 8. BUILD FORMS FUNCTION — Create all syllable objects with visibility levels
@@ -281,57 +281,11 @@ function buildForms() {
       type: 'vowel',
       name: vowel.name,
       japanese: vowel.japanese,
-      visibility: 3,                                          // Always visible
+      visibility: 3,           // Always visible
       mapping: vowel.japanese,
     });
   });
 
-  /*
- function convertToKana(consonant, vowel, stageIndex) {
-
-  // ✅ vowels (top row)
-  if (!consonant) {
-    const vowels = {
-      a: 'あ', i: 'い', u: 'う', e: 'え', o: 'お'
-    };
-    return vowels[vowel] || null;
-  }
-
-  // transformations
-  if (consonant === 'ச' && vowel === 'i') return 'し';
-  if (consonant === 'த' && vowel === 'i') return 'ち';
-  if (consonant === 'த' && vowel === 'u') return 'つ';
-
-  if (consonant === 'ப') {
-    const map = { a:'は', i:'ひ', u:'ふ', e:'へ', o:'ほ' };
-    return map[vowel];
-  }
-
-  if (consonant === 'ன') return 'ん';
-
-  const baseMap = {
-    'க':'k','ச':'s','த':'t','ந':'n','ம':'m',
-    'ய':'y','ர':'r','வ':'w'
-  };
-
-  if (!baseMap[consonant]) return null;
-
-  const key = baseMap[consonant] + vowel;
-
-  const kanaMap = {
-    ka:'か', ki:'き', ku:'く', ke:'け', ko:'こ',
-    sa:'さ', su:'す', se:'せ', so:'そ',
-    ta:'た', te:'て', to:'と',
-    na:'な', ni:'に', nu:'ぬ', ne:'ね', no:'の',
-    ma:'ま', mi:'み', mu:'む', me:'め', mo:'も',
-    ya:'や', yu:'ゆ', yo:'よ',
-    ra:'ら', ri:'り', ru:'る', re:'れ', ro:'ろ',
-    wa:'わ', wo:'を'
-  };
-
-  return kanaMap[key] || null;
-}
-*/
   // Add all 216 consonant+vowel combinations (18 consonants × 12 vowel signs)
   tamilConsonants.forEach(consonant => {
     vowelSigns.forEach((vowelSign, index) => {
@@ -367,33 +321,31 @@ function buildForms() {
 }
 
 const tamilForms = buildForms();  // Generate all 217 forms (216 syllables + 1 aytham)
-
 // ============================================================================
 // 9. GET CURRENT STAGE FUNCTION — Map slider percentage (0–180) to stage index (0–18)
 // Each stage covers a 10% range of the slider
 // ============================================================================
 function getCurrentStage(value) {
-  if (value < 10) return 0;    // Stage 1: 0–9%
-  if (value < 20) return 1;    // Stage 2: 10–19%
-  if (value < 30) return 2;    // Stage 3: 20–29%
-  if (value < 40) return 3;    // Stage 4: 30–39%
-  if (value < 50) return 4;    // Stage 5: 40–49%
-  if (value < 60) return 5;    // Stage 6: 50–59% (shi)
-  if (value < 70) return 6;    // Stage 7: 60–69% (chi)
-  if (value < 80) return 7;    // Stage 8: 70–79% (tsu)
-  if (value < 90) return 8;    // Stage 9: 80–89% (ha-series)
-  if (value < 100) return 9;   // Stage 10: 90–99% (fu)
-  if (value < 110) return 10;   // Stage 11: 100–109% (special n-row)
-  if (value < 120) return 11;   // Stage 12: 110–119% (dim all)
+  if (value < 10) return 0;    // Stage 1: 0–9% (tamil alphabets)
+  if (value < 20) return 1;    // Stage 2: 10–19% (dim all long vowels)
+  if (value < 30) return 2;    // Stage 3: 20–29% (remove all long vowels)
+  if (value < 40) return 3;    // Stage 4: 30–39% (dim all unavailable constant rows)
+  if (value < 50) return 4;    // Stage 5: 40–49% (remove all unavailable constant rows)
+  if (value < 60) return 5;    // Stage 6: 50–59% (dim all constants)
+  if (value < 70) return 6;    // Stage 7: 60–69% (n)
+  if (value < 80) return 7;    // Stage 8: 70–79% (shi)
+  if (value < 90) return 8;    // Stage 9: 80–89% (chi)
+  if (value < 100) return 9;   // Stage 10: 90–99% (tsu)
+  if (value < 110) return 10;   // Stage 11: 100–109% (ha-line)
+  if (value < 120) return 11;   // Stage 12: 110–119% (hu to fu)
   if (value < 130) return 12;   // Stage 13: 120–129% (dim ya/ye)
   if (value < 140) return 13;   // Stage 14: 130–139% (blank ya/ye)
   if (value < 150) return 14;   // Stage 15: 140–149% (dim va/vu/ve)
   if (value < 160) return 15;   // Stage 16: 150–159% (blank va/vu/ve)
-  if (value < 170) return 16;   // Stage 17: 160–169%
+  if (value < 170) return 16;   // Stage 17: 160–169% (untouched)
   if (value < 180) return 17;   // Stage 18: 170–179% (reserved)
   return 18;                     // Stage 19+: 180%+ (reserved)
 }
-
 // ============================================================================
 // 10. GET VISIBLE FORMS FUNCTION — Filter forms based on stage index
 // Only controls visibility for Stages 1–5; Stages 6+ always show all forms
@@ -470,7 +422,6 @@ visibleVowelSigns.forEach((vs) => {
   headRow.appendChild(th);
 });
 
-
   thead.appendChild(headRow);
   table.appendChild(thead);
 
@@ -499,7 +450,7 @@ visibleVowelSigns.forEach((vs) => {
 
     // Check if row should be dimmed at this stage
     const isStage3GrayedRow = stageIndex === 3 && grayedConsonantsStage3.includes(consonant.base);
-    const isStage12DimmedRow = stageIndex >= 5 && deprecatedConsonantsStage12.includes(consonant.base);
+    const isStage12DimmedRow = stageIndex >= 5 && deprecatedConsonantsStage5.includes(consonant.base);
 
     // Apply dim class to grayed row
     if (isStage12DimmedRow) {
@@ -507,7 +458,7 @@ visibleVowelSigns.forEach((vs) => {
     }
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // STEP 4: SPECIAL HANDLING FOR ன (n-row) at Stage 11+
+    // STEP 4: SPECIAL HANDLING FOR ன (n-row) at Stage 6+
     // Merge entire row into single cell showing only 'ன்' (virama form)
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -522,18 +473,6 @@ visibleVowelSigns.forEach((vs) => {
       return;  // Skip normal cell creation for this row
     }
     
-/*  if (stageIndex >= 6 && consonant.base === 'ன') {
-  const td = document.createElement('td');
-  td.className = 'syllable-cell cell-highlight';
-  td.colSpan = visibleVowelSigns.length;
-  const label = stageIndex >= 16 ? 'ん' : consonant.display;
-  td.innerHTML = `<div class="cell-main">${consonant.display}</div>`;
-  tr.appendChild(td);
-  tbody.appendChild(tr);
-  return;
-}
-*/
-
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     // STEP 5: CREATE CELLS FOR EACH VOWEL-COMBINATION
     // _________________________________________________________________
@@ -553,28 +492,29 @@ visibleVowelSigns.forEach((vs) => {
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       // STEP 6: STAGE-SPECIFIC CELL REPLACEMENTS (sound transformations)
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      //STAGE 3: ர highlight
       if (stageIndex >= 3 && consonant.base === 'ர') {
           td.classList.add('cell-highlight');
-    }
-      // STAGE 6: சி → ஷி (shi transformation)
+      }
+      // STAGE 7: சி → ஷி (shi transformation)
       if (stageIndex >= 7 && consonant.base === 'ச' && vs.label === 'i') {
         displayLabel = 'ஷி';
         td.classList.add('cell-highlight');  // Highlight changed cell
       }
 
-      // STAGE 7: தி → ச்சி (chi transformation)
+      // STAGE 8: தி → ச்சி (chi transformation)
       if (stageIndex >= 8 && consonant.base === 'த' && vs.label === 'i') {
         displayLabel = 'ச்சி';
         td.classList.add('cell-highlight');
       }
 
-      // STAGE 8: து → ட்சு (tsu transformation)
+      // STAGE 9: து → ட்சு (tsu transformation)
       if (stageIndex >= 9 && consonant.base === 'த' && vs.label === 'u') {
         displayLabel = 'ட்சு';
         td.classList.add('cell-highlight');
       }
 
-      // STAGE 9–10: ப-series → ஹ-series (pa→ha, pi→hi, pu→fu, pe→he, po→ho)
+      // STAGE 10-11: ப-series → ஹ-series (pa→ha, pi→hi, pu→fu, pe→he, po→ho)
       if (stageIndex >= 10 && consonant.base === 'ப') {
         const replacementMap = {
           a: 'ஹ',                              // pa → ha
@@ -589,8 +529,8 @@ visibleVowelSigns.forEach((vs) => {
         }
         
       }
-	
-      if (stageIndex >= 12 && consonant.base === 'ய' && vs.label === 'i') {
+	// STAGE 12: Yi and Ye change
+    if (stageIndex >= 12 && consonant.base === 'ய' && vs.label === 'i') {
         displayLabel = 'இ';
         td.classList.add('cell-highlight');  // Highlight changed cell
       }
@@ -599,7 +539,7 @@ visibleVowelSigns.forEach((vs) => {
         displayLabel = 'எ';
         td.classList.add('cell-highlight');  // Highlight changed cell
       }
-	  
+	  // STAGE 14: Yi and Ye change
 	  if (stageIndex >= 14 && consonant.base === 'வ' && vs.label === 'i') {
         displayLabel = 'இ';
         td.classList.add('cell-highlight');  // Highlight changed cell
@@ -614,7 +554,7 @@ visibleVowelSigns.forEach((vs) => {
         displayLabel = 'எ';
         td.classList.add('cell-highlight');  // Highlight changed cell
       }
-
+// STAGE 17: Tamil to Japanese change (all cells)
 if (stageIndex >= 17 && consonant.base === 'க') {
         const replacementMap = {
           a: 'か',
@@ -730,42 +670,31 @@ if (stageIndex >= 17 && consonant.base === 'வ') {
           displayLabel = replacementMap[vs.label];
         }
       }
-      /*
-    // FINAL STAGE: Convert Tamil → Japanese (Stage 17+)
-if (stageIndex >= 16) {
-  const kana = convertToKana(consonant.base, vs.label, stageIndex);
-  if (kana) {
-    displayLabel = kana;
-    td.classList.add('cell-highlight');
-  }
-}
-*/
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       // STEP 7: DIM / BLANK RULES FOR LATER STAGES
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-      // STAGE 13: Dim யி and யெ cells
-      const isStage13YDim = stageIndex >= 12 && consonant.base === 'ய' && (vs.label === 'i' || vs.label === 'e');
-      // STAGE 14: Blank யி and யெ cells (remove text)
-      const isStage14YBlank = stageIndex >= 13 && consonant.base === 'ய' && (vs.label === 'i' || vs.label === 'e');
-      // STAGE 15: Dim வி, வு, வெ cells
-      const isStage15VDim = stageIndex >= 14 && consonant.base === 'வ' && (vs.label === 'i' || vs.label === 'u' || vs.label === 'e');
-      // STAGE 16: Blank வி, வு, வெ cells (remove text)
-      const isStage16VBlank = stageIndex >= 15 && consonant.base === 'வ' && (vs.label === 'i' || vs.label === 'u' || vs.label === 'e');
+      // STAGE 12: Dim யி and யெ cells
+      const isStage12YDim = stageIndex >= 12 && consonant.base === 'ய' && (vs.label === 'i' || vs.label === 'e');
+      // STAGE 13: Blank யி and யெ cells (remove text)
+      const isStage13YBlank = stageIndex >= 13 && consonant.base === 'ய' && (vs.label === 'i' || vs.label === 'e');
+      // STAGE 14: Dim வி, வு, வெ cells
+      const isStage14VDim = stageIndex >= 14 && consonant.base === 'வ' && (vs.label === 'i' || vs.label === 'u' || vs.label === 'e');
+      // STAGE 15: Blank வி, வு, வெ cells (remove text)
+      const isStage15VBlank = stageIndex >= 15 && consonant.base === 'வ' && (vs.label === 'i' || vs.label === 'u' || vs.label === 'e');
 
       // Apply dim class to gray cells
-      if (isStage13YDim) {
+      if (isStage12YDim) {
         td.classList.add('cell-dim');
       }
-      if (isStage15VDim) {
+      if (isStage14VDim) {
         td.classList.add('cell-dim');
       }
 
       // Apply blank (remove text content)
-      if (isStage14YBlank) {
+      if (isStage13YBlank) {
         displayLabel = '';
       }
-      if (isStage16VBlank) {
+      if (isStage15VBlank) {
         displayLabel = '';
       }
 
@@ -841,7 +770,7 @@ function updateExplanation(value) {
   // Step 3: Update slider percentage display
   sliderValue.textContent = `${value}%`;
 
-  // Step 4: Update stage label display (e.g., "தமிழ் எழுத்துகள்/ஒலிகள் ஒரு பார்வை")
+  // Step 4: Update stage label display (e.g., "தமிழ் எழுத்துகள் ஒரு பார்வை")
   sliderLabel.textContent = stage.label;
 
   // Step 5: Update stage summary text
